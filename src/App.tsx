@@ -21,7 +21,11 @@ function App() {
           <Route path="/places" element={<div>list of places</div>} />
           <Route path="/places/:placeId" element={<div>single place</div>} />
           <Route path="/episodes" element={<div>list of episodes</div>} />
-          <Route path="/episodes/:episodeId" element={<div>single episode</div>} />
+          <Route
+            path="/episodes/:episodeId"
+            element={<div>single episode</div>}
+          />
+          <Route path="*" element={<div>404 not found</div>} />
         </Routes>
       </BrowserRouter>
     </div>
