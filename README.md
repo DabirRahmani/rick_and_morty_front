@@ -6,5 +6,7 @@
 ## V1
 **Landing page**
 + a row for chars
-+ a row for places
++ a row for locations
 + a row for episodes
++ card for chars
++ card for locations
