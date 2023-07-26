@@ -28,9 +28,8 @@ const CharacterCard = ({ character }: input) => {
           height: 320,
           display: "flex",
           flexDirection: "column",
-          position: "relative"
+          position: "relative",
         }}
-        
       >
         <div
           style={{
@@ -70,6 +69,7 @@ const CharacterCard = ({ character }: input) => {
             onClick={() => {
               navigate(RoutesList.characters + "/" + character.id);
             }}
+            color={theme.palette.secondary.light}
           >
             {character.name}
           </Typography>

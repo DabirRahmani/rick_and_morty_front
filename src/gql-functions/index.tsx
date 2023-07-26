@@ -75,7 +75,9 @@ const GET_LOCATIONS = (page: number = 1) => gql`
         name
         type
         dimension
-        created
+        residents{
+          id
+        }
       }
     }
   }

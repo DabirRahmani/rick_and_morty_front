@@ -6,11 +6,6 @@ import LandingPage from "./pages/landing-page";
 import { Container } from "@mui/material";
 
 function App() {
-  const { data, loading, error } = useQuery(GET_CHARACTERS(2));
-
-  console.log("data", data);
-  console.log("loading", loading);
-  console.log("error", error);
 
   return (
     <div
@@ -21,7 +16,7 @@ function App() {
     >
       <BrowserRouter>
         <MainHeader />
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" style={{overflowY:"auto"}}>
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/characters" element={<div>list of chars page</div>} />

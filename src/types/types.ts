@@ -37,3 +37,28 @@ export interface CharacterMiniLocation {
   dimension: string;
   created: string;
 }
+
+
+export interface GET_LOCATIONS_OUTPUT {
+  info: Info;
+  results: LocationMini[];
+}
+
+export interface Info {
+  count: number;
+  pages: number;
+  next: number;
+  prev: null;
+}
+
+export interface LocationMini {
+  id: string;
+  name: string;
+  type: string;
+  dimension: string;
+  residents: Resident[];
+}
+
+export interface Resident {
+  id: string;
+}

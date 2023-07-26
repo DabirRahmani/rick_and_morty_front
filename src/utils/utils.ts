@@ -1,6 +1,6 @@
-function TruncateString(str: string) {
-  if (str.length > 16) {
-    return str.substring(0, 13) + "...";
+function TruncateString(str: string, count: number = 16) {
+  if (str.length > count) {
+    return str.substring(0, count-3) + "...";
   } else {
     return str;
   }

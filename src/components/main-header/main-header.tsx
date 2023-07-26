@@ -15,6 +15,7 @@ import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import { useNavigate } from "react-router-dom";
 import RoutesList from "../../routes";
+import { useTheme } from "@mui/material";
 
 const routes = Object.values(RoutesList);
 
@@ -65,6 +66,9 @@ const MainHeader = () => {
 
   const navigate = useNavigate();
 
+    const theme = useTheme();
+
+
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -114,7 +118,13 @@ const MainHeader = () => {
                     navigate(route);
                   }}
                 >
-                  <Typography textAlign="center">{route}</Typography>
+                  <Typography
+                    color={theme.palette.secondary.light}
+                    textAlign="center"
+                    fontWeight="700"
+                  >
+                    {route}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -122,20 +132,30 @@ const MainHeader = () => {
 
           <img
             alt="rick and morty icon"
-            style={{ height: 64, width: 64, marginRight: 12 }}
+            style={{
+              height: 64,
+              width: 64,
+              marginRight: 12,
+              cursor: "pointer",
+            }}
             src={RAndM}
+            onClick={() => {
+              navigate("");
+            }}
           />
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            onClick={() => {
+              navigate("");
+            }}
+            style={{ cursor: "pointer" }}
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
               fontWeight: 700,
-              color: "inherit",
+              color: theme.palette.secondary.light,
               textDecoration: "none",
             }}
           >
@@ -149,7 +169,12 @@ const MainHeader = () => {
                 onClick={() => {
                   navigate(route);
                 }}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{
+                  my: 2,
+                  color: theme.palette.secondary.light,
+                  display: "block",
+                  fontWeight: "700",
+                }}
               >
                 {route}
               </Button>
