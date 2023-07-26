@@ -2,11 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-} from "@apollo/client";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 const client = new ApolloClient({
@@ -16,17 +12,21 @@ const client = new ApolloClient({
 
 const theme = createTheme({
   palette: {
-    primary: {
+    secondary: {
       contrastText: "#000000", //سیاه
       main: "#548f22", // سبز لجنی
       dark: "#406e1a",
       light: "#6ebd2b",
     },
-    secondary: {
+    primary: {
       main: "#36909e", // ابی فیروزه تیره
       light: "#43b3c4",
       dark: "#28707a",
       contrastText: "#000000",
+    },
+    background: {
+      default: "#093b42",
+      paper: "#527c82",
     },
   },
 });

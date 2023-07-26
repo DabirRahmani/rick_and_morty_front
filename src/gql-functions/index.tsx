@@ -41,4 +41,49 @@ const GET_CHARACTERS = (page: number = 1) => gql`
   }
 `;
 
-export { GET_CHARACTERS };
+const GET_EPISODES = (page: number = 1) => gql`
+  query {
+    episodes(page: ${page}) {
+      info {
+        count
+        pages
+        next
+        prev
+      }
+      results {
+        id
+        name
+        air_date
+        episode
+        characters{
+          id,
+          name
+        }
+      }
+    }
+  }
+`;
+
+const GET_LOCATIONS = (page: number = 1) => gql`
+  query {
+    locations(page: ${page}) {
+      info {
+        count
+        pages
+        next
+        prev
+      }
+      results {
+        id
+        name
+        type
+        dimension
+        residents{
+          id
+        }
+      }
+    }
+  }
+`;
+
+export { GET_CHARACTERS, GET_EPISODES, GET_LOCATIONS };
