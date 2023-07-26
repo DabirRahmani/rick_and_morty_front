@@ -13,8 +13,10 @@ import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
+import { useNavigate } from "react-router-dom";
+import RoutesList from "../../routes";
 
-const routes = ["Characters", "Episodes", "Places"];
+const routes = Object.values(RoutesList);
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -61,6 +63,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const MainHeader = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 
+  const navigate = useNavigate();
+
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -96,7 +100,7 @@ const MainHeader = () => {
                 vertical: "top",
                 horizontal: "left",
               }}
-              open={Boolean(anchorElNav)}
+              open={anchorElNav !== null}
               onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: "block", md: "none" },
@@ -106,7 +110,8 @@ const MainHeader = () => {
                 <MenuItem
                   key={route}
                   onClick={() => {
-                    console.log(route);
+                    handleCloseNavMenu();
+                    navigate(route);
                   }}
                 >
                   <Typography textAlign="center">{route}</Typography>
@@ -117,7 +122,7 @@ const MainHeader = () => {
 
           <img
             alt="rick and morty icon"
-            style={{ height: 64, width: 64, marginRight:12 }}
+            style={{ height: 64, width: 64, marginRight: 12 }}
             src={RAndM}
           />
           <Typography
@@ -138,13 +143,15 @@ const MainHeader = () => {
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {routes.map((page) => (
+            {routes.map((route) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+                key={route}
+                onClick={() => {
+                  navigate(route);
+                }}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                {page}
+                {route}
               </Button>
             ))}
           </Box>
