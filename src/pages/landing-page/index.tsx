@@ -1,4 +1,5 @@
 import CharacterRow from "./character-row";
+import EpisodeRow from "./episode-row";
 import LocationRow from "./location-row";
 
 const LandingPage = () => {
@@ -6,6 +7,7 @@ const LandingPage = () => {
     <div>
       <CharacterRow />
       <LocationRow />
+      <EpisodeRow />
     </div>
   );
 };

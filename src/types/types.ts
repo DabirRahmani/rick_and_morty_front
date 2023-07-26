@@ -62,3 +62,28 @@ export interface LocationMini {
 export interface Resident {
   id: string;
 }
+
+export interface GET_EPISODES_OUTPUT {
+  info: Info;
+  results: EpisodeMini[];
+}
+
+export interface Info {
+  count: number;
+  pages: number;
+  next: number;
+  prev: null;
+}
+
+export interface EpisodeMini {
+  id: string;
+  name: string;
+  air_date: string;
+  episode: string;
+  characters: EpisodeMiniCharacter[];
+}
+
+export interface EpisodeMiniCharacter {
+  id: string;
+  name: string;
+}

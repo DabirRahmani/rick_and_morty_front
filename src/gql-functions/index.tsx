@@ -55,7 +55,10 @@ const GET_EPISODES = (page: number = 1) => gql`
         name
         air_date
         episode
-        created
+        characters{
+          id,
+          name
+        }
       }
     }
   }

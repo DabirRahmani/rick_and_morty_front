@@ -15,7 +15,6 @@ const LocationRow = () => {
 
   const theme = useTheme();
 
-  console.log(data?.locations.results);
   return (
     <Box
       style={{

@@ -122,6 +122,7 @@ const MainHeader = () => {
                     color={theme.palette.secondary.light}
                     textAlign="center"
                     fontWeight="700"
+                    textTransform="uppercase"
                   >
                     {route}
                   </Typography>
