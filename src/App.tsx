@@ -1,9 +1,8 @@
-import { useQuery } from "@apollo/client";
-import { GET_CHARACTERS } from "./gql-functions";
 import MainHeader from "./components/main-header/main-header";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LandingPage from "./pages/landing-page";
 import { Container } from "@mui/material";
+import CharacterPage from "./pages/character-page";
 
 function App() {
 
@@ -19,7 +18,7 @@ function App() {
         <Container maxWidth="lg" style={{overflowY:"auto"}}>
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/characters" element={<div>list of chars page</div>} />
+            <Route path="/characters" element={<CharacterPage />} />
             <Route
               path="/characters/:charId"
               element={<div>single char</div>}
