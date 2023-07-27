@@ -12,7 +12,7 @@
 + card for locations
 
 ## V2
-**Characters page**
+**Characters Page**
 + list of characters
 + filter by attributes
 + pagination
