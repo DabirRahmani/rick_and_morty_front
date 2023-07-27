@@ -10,3 +10,10 @@
 + a row for episodes
 + card for chars
 + card for locations
+
+## V2
+**Characters Page**
++ list of characters
++ filter by attributes
++ pagination
++ new card design for characters
