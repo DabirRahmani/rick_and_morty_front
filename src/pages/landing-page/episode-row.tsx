@@ -13,7 +13,6 @@ const EpisodeRow = () => {
 
   const theme = useTheme();
 
-  console.log(data?.episodes.results)
 
   return (
     <Box

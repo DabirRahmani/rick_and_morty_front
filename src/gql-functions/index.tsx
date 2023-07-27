@@ -1,8 +1,24 @@
 import { gql } from "@apollo/client";
 
-const GET_CHARACTERS = (page: number = 1) => gql`
-  query {
-    characters(page: ${page}) {
+const GET_CHARACTERS = gql`
+  query GetCharacters(
+    $page: Int,
+    $status: String = null,
+    $gender: String = null,
+    $name: String = null,
+    $species: String = null,
+    $type: String = null
+  ) {
+    characters(
+      page: $page
+      filter: {
+        status: $status
+        gender: $gender
+        name: $name
+        species: $species
+        type: $type
+      }
+    ) {
       info {
         count
         pages
@@ -64,9 +80,9 @@ const GET_EPISODES = (page: number = 1) => gql`
   }
 `;
 
-const GET_LOCATIONS = (page: number = 1) => gql`
-  query {
-    locations(page: ${page}) {
+const GET_LOCATIONS = gql`
+  query GetLocations($page: Int) {
+    locations(page: $page) {
       info {
         count
         pages
@@ -78,7 +94,7 @@ const GET_LOCATIONS = (page: number = 1) => gql`
         name
         type
         dimension
-        residents{
+        residents {
           id
         }
       }

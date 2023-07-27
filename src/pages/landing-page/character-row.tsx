@@ -8,7 +8,11 @@ import { useMediaQuery, useTheme } from "@mui/material";
 const CharacterRow = () => {
   const { data, loading, error } = useQuery<{
     characters: GET_CHARACTERS_OUTPUT;
-  }>(GET_CHARACTERS(Math.floor(Math.random() * 3)));
+  }>(GET_CHARACTERS, {
+    variables: {
+      page: Math.floor(Math.random() * 3),
+    },
+  });
   const theme = useTheme();
   const isMordThanMdScreen = useMediaQuery(theme.breakpoints.up("md"));
 

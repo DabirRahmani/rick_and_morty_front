@@ -9,9 +9,13 @@ import LocationCard from "../../components/cards/location-card";
 import Typography from "@mui/material/Typography";
 
 const LocationRow = () => {
-  const { data, loading, error } = useQuery<{
+  const { data, loading } = useQuery<{
     locations: GET_LOCATIONS_OUTPUT;
-  }>(GET_LOCATIONS(Math.floor(Math.random() * 5)));
+  }>(GET_LOCATIONS, {
+    variables: {
+      page: Math.floor(Math.random() * 5),
+    },
+  });
 
   const theme = useTheme();
 
