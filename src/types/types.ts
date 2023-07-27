@@ -87,3 +87,10 @@ export interface EpisodeMiniCharacter {
   id: string;
   name: string;
 }
+
+export interface CharacterFiltes {
+  status: null | string;
+  gender: null | string;
+  name: null | string;
+  species: null | string
+}
