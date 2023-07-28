@@ -134,4 +134,26 @@ const GET_CHARACTER = gql`
   }
 `;
 
-export { GET_CHARACTERS, GET_EPISODES, GET_LOCATIONS, GET_CHARACTER };
+const GET_LOCATION = gql`
+  query GetLocation($id: ID! = 1) {
+    location(id: $id) {
+      id
+      name
+      type
+      dimension
+      residents {
+        id
+        name
+        image
+      }
+    }
+  }
+`;
+
+export {
+  GET_CHARACTERS,
+  GET_EPISODES,
+  GET_LOCATIONS,
+  GET_CHARACTER,
+  GET_LOCATION,
+};

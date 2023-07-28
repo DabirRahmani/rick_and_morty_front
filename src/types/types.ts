@@ -117,3 +117,17 @@ export interface SingleCharacterLocation {
   id: string;
   name: string;
 }
+
+export interface GET_LOCATION_OUTPUT {
+  id: string;
+  name: string;
+  type: string;
+  dimension: string;
+  residents: ResidentMini[];
+}
+
+export interface ResidentMini {
+  id: string;
+  name: string;
+  image: string;
+}

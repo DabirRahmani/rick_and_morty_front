@@ -234,7 +234,9 @@ const SingleCharacterPage = () => {
               xs={12}
             >
               <Divider style={{ marginBottom: 8 }} light textAlign="center">
-                Episodes Appeared in
+                <Typography fontWeight="bold" variant="body1">
+                  Episodes Appeared in
+                </Typography>
               </Divider>
               {character?.episode
                 .slice(0, extendMore ? character?.episode.length : 4)
