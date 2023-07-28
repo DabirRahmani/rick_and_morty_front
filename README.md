@@ -20,3 +20,9 @@
 
 ## V3
 **Episdoes and Locations page**
+
+## V3
+**Sub Pages**
++ page for single character
++ page for single location
++ page for single episode
