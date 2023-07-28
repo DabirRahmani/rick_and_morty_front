@@ -6,6 +6,7 @@ import CharacterPage from "./pages/character-page";
 import EpisodePage from "./pages/episode-page";
 import LocationPage from "./pages/location-page";
 import SingleCharacterPage from "./pages/single-character-page";
+import SingleLocationPage from "./pages/single-location-page";
 
 function App() {
   return (
@@ -27,8 +28,8 @@ function App() {
             />
             <Route path="/locations" element={<LocationPage />} />
             <Route
-              path="/locations/:placeId"
-              element={<div>single place</div>}
+              path="/locations/:locId"
+              element={<SingleLocationPage />}
             />
             <Route path="/episodes" element={<EpisodePage />} />
             <Route
