@@ -80,12 +80,6 @@ export interface EpisodeMini {
   name: string;
   air_date: string;
   episode: string;
-  characters: EpisodeMiniCharacter[];
-}
-
-export interface EpisodeMiniCharacter {
-  id: string;
-  name: string;
 }
 
 export interface CharacterFiltes {
