@@ -17,3 +17,6 @@
 + filter by attributes
 + pagination
 + new card design for characters
+
+## V3
+**Episdoes and Locations page**
