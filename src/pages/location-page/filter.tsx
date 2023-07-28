@@ -1,19 +1,18 @@
-import { CharacterFiltes } from "../../types/types";
+import { CharacterFiltes, LocationFilters } from "../../types/types";
 import { useState } from "react";
 import { Button, TextField, useTheme } from "@mui/material";
 import MainSelect from "../../components/select/main-select";
 import Grid from "@mui/material/Grid";
-import { GENDERS, SPECIES, STATUSES } from "./filterItems";
+import { DIMENSIONS, TYPES } from "./filterItems";
 
-const CharacterFiltering = ({
+const LocationFiltering = ({
   setFilters,
 }: {
-  setFilters: (fil: CharacterFiltes) => any;
+  setFilters: (fil: LocationFilters) => any;
 }) => {
-  const [gender, setGender] = useState(0);
-  const [status, setStatus] = useState(0);
   const [name, setName] = useState("");
-  const [species, setSpecies] = useState(0);
+  const [dimension, setDimension] = useState(0);
+  const [type, setType] = useState(0);
 
   return (
     <div style={{ width: "100%" }}>
@@ -39,31 +38,19 @@ const CharacterFiltering = ({
         </Grid>
         <Grid item xs={12} sm={6}>
           <MainSelect
-            title="species"
-            items={SPECIES}
-            selectedItem={species}
-            setSelectedItem={setSpecies}
+            title="Type"
+            items={TYPES}
+            selectedItem={type}
+            setSelectedItem={setType}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Grid container>
-            <Grid paddingRight={1} item xs={6}>
-              <MainSelect
-                title="gender"
-                items={GENDERS}
-                selectedItem={gender}
-                setSelectedItem={setGender}
-              />
-            </Grid>
-            <Grid item xs={6}>
-              <MainSelect
-                title="status"
-                items={STATUSES}
-                selectedItem={status}
-                setSelectedItem={setStatus}
-              />
-            </Grid>
-          </Grid>
+          <MainSelect
+            title="Dimension"
+            items={DIMENSIONS}
+            selectedItem={dimension}
+            setSelectedItem={setDimension}
+          />
         </Grid>
 
         <Grid item xs={12} sm={6}>
@@ -82,10 +69,10 @@ const CharacterFiltering = ({
               color="secondary"
               onClick={() => {
                 setFilters({
-                  status: status === 0 ? null : STATUSES[status].name,
-                  gender: gender === 0 ? null : GENDERS[gender].name,
+                  type: type === 0 ? null : TYPES[type].name,
+                  dimension:
+                    dimension === 0 ? null : DIMENSIONS[dimension].name,
                   name: name === "" ? null : name,
-                  species: species === 0 ? null : SPECIES[species].name,
                 });
               }}
             >
@@ -98,15 +85,13 @@ const CharacterFiltering = ({
               color="primary"
               onClick={() => {
                 setFilters({
-                  gender: null,
+                  dimension: null,
                   name: null,
-                  species: null,
-                  status: null,
+                  type: null,
                 });
                 setName("");
-                setSpecies(0);
-                setStatus(0);
-                setGender(0);
+                setDimension(0);
+                setType(0);
               }}
             >
               Restore Default
@@ -118,4 +103,4 @@ const CharacterFiltering = ({
   );
 };
 
-export default CharacterFiltering;
+export default LocationFiltering;

@@ -4,7 +4,7 @@ import { GET_EPISODES_OUTPUT } from "../../types/types";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { useTheme } from "@mui/material";
+import { Skeleton, useTheme } from "@mui/material";
 
 const EpisodeRow = () => {
   const { data, loading, error } = useQuery<{
@@ -12,7 +12,6 @@ const EpisodeRow = () => {
   }>(GET_EPISODES);
 
   const theme = useTheme();
-
 
   return (
     <Box
@@ -26,14 +25,18 @@ const EpisodeRow = () => {
       }}
       sx={{ background: "RGBA(256,256,256,0.1)" }}
     >
-      <Typography
-        variant="h6"
-        fontWeight="bold"
-        textAlign="center"
-        color={theme.palette.secondary.light}
-      >
-        Total Episodes: {data?.episodes.info.count} in 5 Seasons
-      </Typography>
+      {loading ? (
+        <Skeleton />
+      ) : (
+        <Typography
+          variant="h6"
+          fontWeight="bold"
+          textAlign="center"
+          color={theme.palette.secondary.light}
+        >
+          Total Episodes: {data?.episodes.info.count} in 5 Seasons
+        </Typography>
+      )}
     </Box>
   );
 };

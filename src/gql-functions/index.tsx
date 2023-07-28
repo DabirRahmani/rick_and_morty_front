@@ -80,7 +80,7 @@ const GET_EPISODES = gql`
 
 const GET_LOCATIONS = gql`
   query GetLocations(
-    $page: Int
+    $page: Int = 1
     $name: String = null
     $type: String = null
     $dimension: String = null

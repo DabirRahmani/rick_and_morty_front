@@ -88,3 +88,9 @@ export interface CharacterFiltes {
   name: null | string;
   species: null | string
 }
+
+export interface LocationFilters {
+  name: null | string;
+  type: null | string;
+  dimension: null | string;
+}
