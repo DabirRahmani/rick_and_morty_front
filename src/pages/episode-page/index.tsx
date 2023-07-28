@@ -67,8 +67,6 @@ const EpisodePage = () => {
 
   const navigate = useNavigate();
 
-  console.log(organizedEpisodes);
-
   return (
     <div
       style={{
@@ -141,8 +139,8 @@ const EpisodePage = () => {
                       variant="h6"
                       style={{ marginRight: 8, marginLeft: 8 }}
                       className="links"
-                      onClick={()=>{
-                        navigate(e.id)
+                      onClick={() => {
+                        navigate(e.id);
                       }}
                     >
                       {parseInt(e.episode.split("E")[1]) + "- "}
