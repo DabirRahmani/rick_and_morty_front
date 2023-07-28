@@ -7,6 +7,7 @@ import EpisodePage from "./pages/episode-page";
 import LocationPage from "./pages/location-page";
 import SingleCharacterPage from "./pages/single-character-page";
 import SingleLocationPage from "./pages/single-location-page";
+import SingleEpisodePage from "./pages/single-episode-page";
 
 function App() {
   return (
@@ -27,14 +28,11 @@ function App() {
               element={<SingleCharacterPage />}
             />
             <Route path="/locations" element={<LocationPage />} />
-            <Route
-              path="/locations/:locId"
-              element={<SingleLocationPage />}
-            />
+            <Route path="/locations/:locId" element={<SingleLocationPage />} />
             <Route path="/episodes" element={<EpisodePage />} />
             <Route
               path="/episodes/:episodeId"
-              element={<div>single episode</div>}
+              element={<SingleEpisodePage />}
             />
             <Route path="*" element={<div>404 not found</div>} />
           </Routes>

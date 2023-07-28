@@ -125,6 +125,20 @@ export interface GET_LOCATION_OUTPUT {
   dimension: string;
   residents: ResidentMini[];
 }
+export interface GET_EPISODE_OUTPUT {
+  id: string;
+  name: string;
+  air_date: string;
+  episode: string
+  characters: CharacterMini[];
+}
+
+export interface CharacterMini {
+  id: string;
+  name: string;
+  image: string;
+}
+
 
 export interface ResidentMini {
   id: string;
