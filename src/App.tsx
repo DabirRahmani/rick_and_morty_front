@@ -3,9 +3,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LandingPage from "./pages/landing-page";
 import { Container } from "@mui/material";
 import CharacterPage from "./pages/character-page";
+import EpisodePage from "./pages/episode-page";
+import LocationPage from "./pages/location-page";
 
 function App() {
-
   return (
     <div
       style={{
@@ -15,7 +16,7 @@ function App() {
     >
       <BrowserRouter>
         <MainHeader />
-        <Container maxWidth="lg" style={{overflowY:"auto"}}>
+        <Container maxWidth="lg" style={{ overflowY: "auto" }}>
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/characters" element={<CharacterPage />} />
@@ -23,9 +24,12 @@ function App() {
               path="/characters/:charId"
               element={<div>single char</div>}
             />
-            <Route path="/locations" element={<div>list of places</div>} />
-            <Route path="/locations/:placeId" element={<div>single place</div>} />
-            <Route path="/episodes" element={<div>list of episodes</div>} />
+            <Route path="/locations" element={<LocationPage />} />
+            <Route
+              path="/locations/:placeId"
+              element={<div>single place</div>}
+            />
+            <Route path="/episodes" element={<EpisodePage />} />
             <Route
               path="/episodes/:episodeId"
               element={<div>single episode</div>}

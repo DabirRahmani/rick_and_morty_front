@@ -80,12 +80,6 @@ export interface EpisodeMini {
   name: string;
   air_date: string;
   episode: string;
-  characters: EpisodeMiniCharacter[];
-}
-
-export interface EpisodeMiniCharacter {
-  id: string;
-  name: string;
 }
 
 export interface CharacterFiltes {
@@ -93,4 +87,10 @@ export interface CharacterFiltes {
   gender: null | string;
   name: null | string;
   species: null | string
+}
+
+export interface LocationFilters {
+  name: null | string;
+  type: null | string;
+  dimension: null | string;
 }
