@@ -2,11 +2,11 @@ import { gql } from "@apollo/client";
 
 const GET_CHARACTERS = gql`
   query GetCharacters(
-    $page: Int,
-    $status: String = null,
-    $gender: String = null,
-    $name: String = null,
-    $species: String = null,
+    $page: Int
+    $status: String = null
+    $gender: String = null
+    $name: String = null
+    $species: String = null
     $type: String = null
   ) {
     characters(
@@ -57,9 +57,11 @@ const GET_CHARACTERS = gql`
   }
 `;
 
-const GET_EPISODES = (page: number = 1) => gql`
-  query {
-    episodes(page: ${page}) {
+const GET_EPISODES = gql`
+  query GetEpisodes(
+    $page: Int = 1
+  ) {
+    episodes(page: $page) {
       info {
         count
         pages
@@ -71,18 +73,22 @@ const GET_EPISODES = (page: number = 1) => gql`
         name
         air_date
         episode
-        characters{
-          id,
-          name
-        }
       }
     }
   }
 `;
 
 const GET_LOCATIONS = gql`
-  query GetLocations($page: Int) {
-    locations(page: $page) {
+  query GetLocations(
+    $page: Int
+    $name: String = null
+    $type: String = null
+    $dimension: String = null
+  ) {
+    locations(
+      page: $page
+      filter: { name: $name, dimension: $dimension, type: $type }
+    ) {
       info {
         count
         pages

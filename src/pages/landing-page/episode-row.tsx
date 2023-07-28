@@ -9,7 +9,7 @@ import { useTheme } from "@mui/material";
 const EpisodeRow = () => {
   const { data, loading, error } = useQuery<{
     episodes: GET_EPISODES_OUTPUT;
-  }>(GET_EPISODES(1));
+  }>(GET_EPISODES);
 
   const theme = useTheme();
 
