@@ -10,7 +10,6 @@ export interface GetCharInfo {
   prev: null | number;
 }
 
-
 export interface CharacterMini {
   id: string;
   name: string;
@@ -37,7 +36,6 @@ export interface CharacterMiniLocation {
   dimension: string;
   created: string;
 }
-
 
 export interface GET_LOCATIONS_OUTPUT {
   info: Info;
@@ -86,11 +84,64 @@ export interface CharacterFiltes {
   status: null | string;
   gender: null | string;
   name: null | string;
-  species: null | string
+  species: null | string;
 }
 
 export interface LocationFilters {
   name: null | string;
   type: null | string;
   dimension: null | string;
+}
+
+export interface GET_CHARACTER_OUTPUT {
+  id: string;
+  name: string;
+  status: string;
+  species: string;
+  type: string;
+  gender: string;
+  origin: SingleCharacterLocation;
+  location: SingleCharacterLocation;
+  image: string;
+  episode: SingleCharacterEpisode[];
+}
+
+export interface SingleCharacterEpisode {
+  id: string;
+  name: string;
+  episode: string;
+  air_date: string;
+}
+
+export interface SingleCharacterLocation {
+  id: string;
+  name: string;
+}
+
+export interface GET_LOCATION_OUTPUT {
+  id: string;
+  name: string;
+  type: string;
+  dimension: string;
+  residents: ResidentMini[];
+}
+export interface GET_EPISODE_OUTPUT {
+  id: string;
+  name: string;
+  air_date: string;
+  episode: string
+  characters: CharacterMini[];
+}
+
+export interface CharacterMini {
+  id: string;
+  name: string;
+  image: string;
+}
+
+
+export interface ResidentMini {
+  id: string;
+  name: string;
+  image: string;
 }

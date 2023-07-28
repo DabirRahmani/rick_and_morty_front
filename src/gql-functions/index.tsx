@@ -58,9 +58,7 @@ const GET_CHARACTERS = gql`
 `;
 
 const GET_EPISODES = gql`
-  query GetEpisodes(
-    $page: Int = 1
-  ) {
+  query GetEpisodes($page: Int = 1) {
     episodes(page: $page) {
       info {
         count
@@ -108,4 +106,71 @@ const GET_LOCATIONS = gql`
   }
 `;
 
-export { GET_CHARACTERS, GET_EPISODES, GET_LOCATIONS };
+const GET_CHARACTER = gql`
+  query GetCharacter($id: ID! = 1) {
+    character(id: $id) {
+      id
+      name
+      status
+      species
+      type
+      gender
+      origin {
+        id
+        name
+      }
+      location {
+        id
+        name
+      }
+      image
+      episode {
+        id
+        name
+        episode
+        air_date
+      }
+    }
+  }
+`;
+
+const GET_LOCATION = gql`
+  query GetLocation($id: ID! = 1) {
+    location(id: $id) {
+      id
+      name
+      type
+      dimension
+      residents {
+        id
+        name
+        image
+      }
+    }
+  }
+`;
+
+const GET_EPISODE = gql`
+  query GetEpisode($id: ID! = 1) {
+    episode(id: $id) {
+      id
+      name
+      air_date
+      episode
+      characters {
+        id
+        name
+        image
+      }
+    }
+  }
+`;
+
+export {
+  GET_CHARACTERS,
+  GET_EPISODES,
+  GET_LOCATIONS,
+  GET_CHARACTER,
+  GET_LOCATION,
+  GET_EPISODE,
+};

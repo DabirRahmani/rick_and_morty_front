@@ -26,7 +26,7 @@ const LocationCard = ({ location }: input) => {
           whiteSpace="nowrap"
           className="links"
           onClick={() => {
-            navigate(RoutesList.places + "/" + location.id);
+            navigate("/" + RoutesList.places + "/" + location.id);
           }}
         >
           {location.name}

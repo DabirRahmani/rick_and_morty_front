@@ -67,8 +67,6 @@ const EpisodePage = () => {
 
   const navigate = useNavigate();
 
-  console.log(organizedEpisodes);
-
   return (
     <div
       style={{
@@ -95,7 +93,7 @@ const EpisodePage = () => {
       )}
       {organizedEpisodes.map((s) => {
         return (
-          <div>
+          <div key={s.season}>
             <Divider
               light
               style={{ marginLeft: 8, marginRight: 8 }}
@@ -136,13 +134,13 @@ const EpisodePage = () => {
                     key={e.id}
                   >
                     <Typography
-                      textAlign="center"
+                      textAlign="left"
                       fontWeight="bold"
                       variant="h6"
                       style={{ marginRight: 8, marginLeft: 8 }}
                       className="links"
-                      onClick={()=>{
-                        navigate(e.id)
+                      onClick={() => {
+                        navigate(e.id);
                       }}
                     >
                       {parseInt(e.episode.split("E")[1]) + "- "}
