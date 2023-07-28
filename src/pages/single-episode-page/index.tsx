@@ -2,7 +2,6 @@ import { useQuery } from "@apollo/client";
 import {
   Box,
   Card,
-  Chip,
   Divider,
   Skeleton,
   Typography,
@@ -11,30 +10,27 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { GET_LOCATION_OUTPUT } from "../../types/types";
-import { GET_LOCATION } from "../../gql-functions";
+import { GET_EPISODE_OUTPUT } from "../../types/types";
+import { GET_EPISODE } from "../../gql-functions";
 import RoutesList from "../../routes";
 
-const SingleLocationPage = () => {
-  const [location, setLocation] = useState<GET_LOCATION_OUTPUT>();
-  const { locId } = useParams();
+const SingleEpisodePage = () => {
+  const [episode, setEpisode] = useState<GET_EPISODE_OUTPUT>();
+  const { episodeId } = useParams();
   const { loading } = useQuery<{
-    location: GET_LOCATION_OUTPUT;
-  }>(GET_LOCATION, {
+    episode: GET_EPISODE_OUTPUT;
+  }>(GET_EPISODE, {
     variables: {
-      id: locId,
+      id: episodeId,
     },
     onCompleted(data) {
-      setLocation(data.location);
+      setEpisode(data.episode);
     },
   });
 
   const theme = useTheme();
 
   const navigate = useNavigate();
-
-  const mormd = useMediaQuery(theme.breakpoints.up("md"));
-  const morsm = useMediaQuery(theme.breakpoints.up("sm"));
 
   return (
     <div style={{ width: "100%", textAlign: "center" }}>
@@ -53,9 +49,11 @@ const SingleLocationPage = () => {
         {loading ? (
           <>
             <Skeleton style={{ height: 40, marginBottom: 16 }} />
-            <Skeleton style={{ height: 32, marginBottom: 16 }} />
-            <Skeleton style={{ height: 32, marginBottom: 16 }} />
-            <Skeleton style={{ height: 32, marginBottom: 16 }} />
+
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
             <Skeleton />
             <Skeleton />
             <Skeleton />
@@ -67,67 +65,19 @@ const SingleLocationPage = () => {
               fontWeight="bold"
               variant="h6"
               color={theme.palette.secondary.light}
+              marginTop={1}
+              marginBottom={1}
             >
-              {location?.name}
+              {episode?.episode +
+                " - " +
+                episode?.name +
+                " - " +
+                episode?.air_date}
             </Typography>
-            <div
-              style={{
-                marginLeft: mormd ? 240 : morsm ? 100 : 20,
-                marginRight: mormd ? 240 : morsm ? 100 : 20,
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  flexWrap: "nowrap",
-                  justifyContent: "space-between",
-                }}
-              >
-                <Typography fontWeight="" variant="body1">
-                  Type
-                </Typography>
-                <Typography fontWeight="bold" variant="body1">
-                  {location?.type}
-                </Typography>
-              </div>
-
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  flexWrap: "nowrap",
-                  justifyContent: "space-between",
-                }}
-              >
-                <Typography fontWeight="" variant="body1">
-                  Dimension
-                </Typography>
-                <Typography fontWeight="bold" variant="body1">
-                  {location?.dimension}
-                </Typography>
-              </div>
-
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  flexWrap: "nowrap",
-                  justifyContent: "space-between",
-                }}
-              >
-                <Typography fontWeight="" variant="body1">
-                  Number of residents
-                </Typography>
-                <Typography fontWeight="bold" variant="body1">
-                  {location?.residents.length}
-                </Typography>
-              </div>
-            </div>
 
             <Divider light textAlign="center">
               <Typography fontWeight="bold" variant="body1">
-                Residents
+                Characters
               </Typography>
             </Divider>
 
@@ -139,8 +89,9 @@ const SingleLocationPage = () => {
                 marginBottom: 16,
               }}
             >
-              {location?.residents.map((r) => (
+              {episode?.characters.map((r) => (
                 <Card
+                  key={r.id}
                   style={{
                     height: 40,
                     borderRadius: 20,
@@ -184,4 +135,4 @@ const SingleLocationPage = () => {
   );
 };
 
-export default SingleLocationPage;
+export default SingleEpisodePage;

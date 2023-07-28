@@ -256,7 +256,7 @@ const SingleCharacterPage = () => {
                       key={e.id}
                     >
                       <Typography
-                        textAlign="center"
+                        textAlign="left"
                         fontWeight="bold"
                         variant="h6"
                         style={{ marginRight: 8, marginLeft: 8 }}
