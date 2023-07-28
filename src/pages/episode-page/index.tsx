@@ -4,6 +4,8 @@ import { GET_EPISODES } from "../../gql-functions";
 import { useEffect, useState } from "react";
 import { Box, Card, Divider, Skeleton, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import { useNavigate } from "react-router-dom";
+import RoutesList from "../../routes";
 
 interface EpisodesBySeason {
   season: string;
@@ -62,6 +64,8 @@ const EpisodePage = () => {
   }, [loadFlag]);
 
   const theme = useTheme();
+
+  const navigate = useNavigate();
 
   console.log(organizedEpisodes);
 
@@ -137,6 +141,9 @@ const EpisodePage = () => {
                       variant="h6"
                       style={{ marginRight: 8, marginLeft: 8 }}
                       className="links"
+                      onClick={()=>{
+                        navigate(e.id)
+                      }}
                     >
                       {parseInt(e.episode.split("E")[1]) + "- "}
                       {e.name}

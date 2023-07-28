@@ -4,6 +4,7 @@ import LandingPage from "./pages/landing-page";
 import { Container } from "@mui/material";
 import CharacterPage from "./pages/character-page";
 import EpisodePage from "./pages/episode-page";
+import LocationPage from "./pages/location-page";
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
               path="/characters/:charId"
               element={<div>single char</div>}
             />
-            <Route path="/locations" element={<div>list of places</div>} />
+            <Route path="/locations" element={<LocationPage />} />
             <Route
               path="/locations/:placeId"
               element={<div>single place</div>}
