@@ -26,3 +26,6 @@
 + page for single character
 + page for single location
 + page for single episode
+
+## V5
+**Search**
