@@ -16,10 +16,11 @@ import InputBase from "@mui/material/InputBase";
 import { useNavigate } from "react-router-dom";
 import RoutesList from "../../routes";
 import { useTheme } from "@mui/material";
+import MainSearchModal from "../main-search";
 
 const routes = Object.values(RoutesList);
 
-const Search = styled("div")(({ theme } : any) => ({
+const Search = styled("div")(({ theme }: any) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -32,16 +33,8 @@ const Search = styled("div")(({ theme } : any) => ({
     marginLeft: theme.spacing(1),
     width: "auto",
   },
-}));
-
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
+  flexWrap: "nowrap",
   display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -50,24 +43,22 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("sm")]: {
-      width: "20ch",
-      "&:focus": {
-        width: "28ch",
-      },
+      width: "28ch",
     },
   },
 }));
 
 const MainHeader = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [searchModalStatus, setSearchModalStatus] = useState(false);
+
+  const [searchText, setSearchText] = useState("");
 
   const navigate = useNavigate();
 
-    const theme = useTheme();
-
+  const theme = useTheme();
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -75,6 +66,12 @@ const MainHeader = () => {
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+  };
+
+  const handleKeyDown = (event: any) => {
+    if (event.key === "Enter") {
+      setSearchModalStatus(true);
+    }
   };
 
   return (
@@ -183,12 +180,29 @@ const MainHeader = () => {
           </Box>
 
           <Search>
-            <SearchIconWrapper>
+            <IconButton
+              onClick={() => {
+                setSearchModalStatus(true);
+              }}
+              style={{ position: "absolute", zIndex: 10, left: 4 }}
+            >
               <SearchIcon />
-            </SearchIconWrapper>
+            </IconButton>
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ "aria-label": "search" }}
+              onKeyDown={handleKeyDown}
+              value={searchText}
+              onChange={(e) => {
+                setSearchText(e.target.value);
+              }}
+            />
+            <MainSearchModal
+              open={searchModalStatus}
+              close={() => {
+                setSearchModalStatus(false);
+              }}
+              searchText={searchText}
             />
           </Search>
         </Toolbar>

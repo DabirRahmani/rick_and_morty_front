@@ -141,6 +141,7 @@ const SingleLocationPage = () => {
             >
               {location?.residents.map((r) => (
                 <Card
+                  key={r.id}
                   style={{
                     height: 40,
                     borderRadius: 20,

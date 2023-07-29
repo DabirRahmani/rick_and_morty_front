@@ -166,6 +166,30 @@ const GET_EPISODE = gql`
   }
 `;
 
+const GET_SEARCH = gql`
+  query GetSearch($page: Int = 1, $search: String = "") {
+    episodes(page: $page, filter: { name: $search }) {
+      results {
+        id
+        name
+      }
+    }
+    locations(page: $page, filter: { name: $search }) {
+      results {
+        id
+        name
+      }
+    }
+    characters(page: $page, filter: { name: $search }) {
+      results {
+        id
+        name
+        image
+      }
+    }
+  }
+`;
+
 export {
   GET_CHARACTERS,
   GET_EPISODES,
@@ -173,4 +197,5 @@ export {
   GET_CHARACTER,
   GET_LOCATION,
   GET_EPISODE,
+  GET_SEARCH,
 };

@@ -129,7 +129,7 @@ export interface GET_EPISODE_OUTPUT {
   id: string;
   name: string;
   air_date: string;
-  episode: string
+  episode: string;
   characters: CharacterMini[];
 }
 
@@ -139,8 +139,31 @@ export interface CharacterMini {
   image: string;
 }
 
-
 export interface ResidentMini {
+  id: string;
+  name: string;
+  image: string;
+}
+
+export interface GET_SEARCH_OUTPUT {
+  episodes: SearchResult;
+  locations: SearchResult;
+  characters: SearchResultCharacter;
+}
+
+export interface SearchResult {
+  results: SearchResultItem[];
+}
+
+export interface SearchResultCharacter {
+  results: SearchResultCharacterItem[];
+}
+
+export interface SearchResultItem {
+  id: string;
+  name: string;
+}
+export interface SearchResultCharacterItem {
   id: string;
   name: string;
   image: string;
