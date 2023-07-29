@@ -124,11 +124,15 @@ const SingleLocationPage = () => {
               </div>
             </div>
 
-            <Divider light textAlign="center">
-              <Typography fontWeight="bold" variant="body1">
-                Residents
-              </Typography>
-            </Divider>
+            {!loading && location?.residents.length === 0 ? (
+              <></>
+            ) : (
+              <Divider light textAlign="center">
+                <Typography fontWeight="bold" variant="body1">
+                  Residents
+                </Typography>
+              </Divider>
+            )}
 
             <div
               style={{

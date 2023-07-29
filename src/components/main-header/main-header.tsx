@@ -70,7 +70,7 @@ const MainHeader = () => {
 
   const handleKeyDown = (event: any) => {
     if (event.key === "Enter") {
-      setSearchModalStatus(true);
+      if (searchText.trim() !== "") setSearchModalStatus(true);
     }
   };
 
@@ -182,7 +182,7 @@ const MainHeader = () => {
           <Search>
             <IconButton
               onClick={() => {
-                setSearchModalStatus(true);
+                if (searchText.trim() !== "") setSearchModalStatus(true);
               }}
               style={{ position: "absolute", zIndex: 10, left: 4 }}
             >
@@ -194,7 +194,7 @@ const MainHeader = () => {
               onKeyDown={handleKeyDown}
               value={searchText}
               onChange={(e) => {
-                setSearchText(e.target.value);
+                if (e.target.value.length < 32) setSearchText(e.target.value);
               }}
             />
             <MainSearchModal

@@ -170,6 +170,19 @@ const LocationPage = () => {
         ) : (
           <></>
         )}
+
+        {!loading && locations.length === 0 ? (
+          <Typography
+            textAlign="center"
+            fontWeight="bold"
+            variant="h6"
+            style={{ padding: 32, width: "100%" }}
+          >
+            Nothing found. . .
+          </Typography>
+        ) : (
+          <></>
+        )}
       </Grid>
     </Box>
   );
