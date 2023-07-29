@@ -123,6 +123,7 @@ const MainSearchResaults = ({ searchText, close }: any) => {
                             margin: 4,
                           }}
                           loading="lazy"
+                          alt={c.name}
                         />
                         <Typography
                           fontWeight="bold"

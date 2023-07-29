@@ -1,9 +1,4 @@
-import { Card, Fade, IconButton, Modal } from "@mui/material";
-import ClearIcon from "@mui/icons-material/Clear";
-import { useQuery } from "@apollo/client";
-import { GET_SEARCH_OUTPUT } from "../../types/types";
-import { GET_SEARCH } from "../../gql-functions";
-import { useState } from "react";
+import {Fade, Modal } from "@mui/material";
 import MainSearchResaults from "./resualts";
 
 const MainSearchModal = ({ open, searchText, close }: any) => {

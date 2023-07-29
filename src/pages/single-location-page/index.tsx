@@ -2,7 +2,6 @@ import { useQuery } from "@apollo/client";
 import {
   Box,
   Card,
-  Chip,
   Divider,
   Skeleton,
   Typography,
@@ -162,6 +161,7 @@ const SingleLocationPage = () => {
                       height: 32,
                       margin: 4,
                     }}
+                    alt={r.name}
                     loading="lazy"
                   />
                   <Typography
