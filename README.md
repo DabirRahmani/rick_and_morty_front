@@ -1,5 +1,13 @@
 # rick_and_morty_front
 
+## Getting started
+
+```
+npm install ; npm run start
+```
+
+
+
 ## V0
 **Nav bar and theming**
 
