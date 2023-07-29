@@ -1,6 +1,6 @@
 {
   "name": "rick_and_morty",
-  "version": "0.1.0",
+  "version": "0.5.0",
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.7.17",
