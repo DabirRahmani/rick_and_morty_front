@@ -59,7 +59,7 @@ const MainSearchResaults = ({ searchText, close }: any) => {
           <ClearIcon />
         </IconButton>
 
-        <Typography textAlign="center" variant="body1">
+        <Typography style={{marginTop:16, marginBottom:16}} textAlign="center" variant="body1">
           Searching for{" "}
           <Typography
             textAlign="center"
@@ -123,6 +123,7 @@ const MainSearchResaults = ({ searchText, close }: any) => {
                             margin: 4,
                           }}
                           loading="lazy"
+                          alt={c.name}
                         />
                         <Typography
                           fontWeight="bold"

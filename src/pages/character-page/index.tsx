@@ -62,7 +62,7 @@ const CharacterPage = () => {
       filters.gender !== filtersForSearch.gender ||
       filters.name !== filtersForSearch.name ||
       filters.species !== filtersForSearch.species ||
-      filters.status !== filtersForSearch.status 
+      filters.status !== filtersForSearch.status
     ) {
       setCharacters([]);
       setCurrentPage(1);
@@ -124,7 +124,7 @@ const CharacterPage = () => {
         </div>
 
         {filterDropMenuStatus ? (
-          <CharacterFiltering setFilters={setFilters}/>
+          <CharacterFiltering setFilters={setFilters} />
         ) : (
           <></>
         )}
@@ -163,7 +163,21 @@ const CharacterPage = () => {
           ) : (
             <></>
           )}
+
+          {!loading && characters.length === 0 ? (
+            <Typography
+              textAlign="center"
+              fontWeight="bold"
+              variant="h6"
+              style={{ padding: 32 , width:"100%"}}
+            >
+              Nothing found. . . 
+            </Typography>
+          ) : (
+            <></>
+          )}
         </Grid>
+
         <div ref={bottomRef as any} />
       </Box>
     </>

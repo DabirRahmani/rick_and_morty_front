@@ -2,7 +2,6 @@ import { useQuery } from "@apollo/client";
 import {
   Box,
   Card,
-  Chip,
   Divider,
   Skeleton,
   Typography,
@@ -125,11 +124,15 @@ const SingleLocationPage = () => {
               </div>
             </div>
 
-            <Divider light textAlign="center">
-              <Typography fontWeight="bold" variant="body1">
-                Residents
-              </Typography>
-            </Divider>
+            {!loading && location?.residents.length === 0 ? (
+              <></>
+            ) : (
+              <Divider light textAlign="center">
+                <Typography fontWeight="bold" variant="body1">
+                  Residents
+                </Typography>
+              </Divider>
+            )}
 
             <div
               style={{
@@ -162,6 +165,7 @@ const SingleLocationPage = () => {
                       height: 32,
                       margin: 4,
                     }}
+                    alt={r.name}
                     loading="lazy"
                   />
                   <Typography
